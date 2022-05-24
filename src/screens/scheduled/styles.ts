@@ -40,11 +40,21 @@ export const WrapperFooterLabel = styled.Text`
   color: ${({ theme }) => theme.colors.background_button};
 `;
 
-export const Back = styled.Text`
+export const Back = styled.TouchableOpacity`
+  
+`;
+
+export const BackText = styled.Text`
   text-align: center;
   text-decoration: underline;
 
   font-size: ${RFValue(14)}px;
   font-weight: 500;
   color: ${({ theme }) => theme.colors.title};
+`;
+
+export const WrapperDoctors = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
