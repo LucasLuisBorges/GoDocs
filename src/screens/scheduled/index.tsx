@@ -6,7 +6,7 @@ import { Button } from "../../components/Button";
 import { Card } from "../../components/Card";
 import { DocsCard } from "../../components/DocsCard";
 import { HeaderSchedule } from "../../components/HeaderSchedule";
-import { InputSearch } from "../../InputSearch";
+import { InputSearch } from "../../components/InputSearch";
 
 import * as S from "./styles";
 
