@@ -1,45 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import * as S from './styles';
-import { AntDesign } from '@expo/vector-icons';
-import theme from '../../global/styles/theme';
+import * as S from "./styles";
+import { AntDesign } from "@expo/vector-icons";
 
 interface IProps {
   name: string;
   type: string;
-  stars: string
+  stars: string;
+  validateBack: string;
+  validateName: string;
+  validateLabel: string;
+  execute: () => void;
 }
 
-export function DocsCard({ name, type, stars } : IProps){
-  const image = {uri: 'https://medicina.ucpel.edu.br/wp-content/uploads/2020/07/apacucpel_ucpel_image_319-1024x960.jpeg'}
-  const [selected, isSelected] = useState(false)
+export function DocsCard({
+  name,
+  type,
+  stars,
+  validateBack,
+  validateName,
+  validateLabel,
+  execute,
+}: IProps) {
+  const image = {
+    uri: "https://medicina.ucpel.edu.br/wp-content/uploads/2020/07/apacucpel_ucpel_image_319-1024x960.jpeg",
+  };
+  const [selected, isSelected] = useState(false);
 
-  function handleSelected() {
-    isSelected(!selected)
-  }
   return (
-    <S.Container
-      onPress={handleSelected}
-      selected={
-        selected ? theme.colors.blue_text_light : theme.colors.shape
-      }
-    >
-      <S.Image source={image}/>
-      <S.Name
-        colorText={
-          selected ? theme.colors.shape : theme.colors.blue_text
-        }
-      >{name}</S.Name>
+    <S.Container onPress={execute} selected={validateBack}>
+      <S.Image source={image} />
+      <S.Name colorText={validateName}>{name}</S.Name>
       <S.WrapperStars>
         <S.WrapperCount>
           <AntDesign name="star" size={12} color="#FFF" />
           <S.StarsCount>{stars}</S.StarsCount>
         </S.WrapperCount>
-        <S.Label
-          colorText={
-            selected ? theme.colors.shape : theme.colors.text
-          }
-        >{type}</S.Label>
+        <S.Label colorText={validateLabel}>{type}</S.Label>
       </S.WrapperStars>
     </S.Container>
   );
